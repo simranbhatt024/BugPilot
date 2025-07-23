@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BugPilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: black url('https://i.gifer.com/7VE.gif') repeat center center;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .login-container {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px #00ffc3;
+      width: 90%;
+      max-width: 350px;
+      text-align: center;
+    }
+
+    .login-container h1 {
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 25px;
+      font-size: 30px;
+      color: #00ffc3;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 16px;
+      background-color: #1e1e1e;
+      color: #fff;
+    }
+
+    .login-container input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      background: #00ffc3;
+      color: black;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px #00ffc3;
+    }
+
+    .login-container input[type="submit"]:hover {
+      background: #00e6ac;
+      box-shadow: 0 0 20px #00ffc3, 0 0 30px #00ffc3;
+    }
+
+    .login-container .links {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .login-container a {
+      color: #00ffc3;
+      text-decoration: none;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 30px 20px;
+      }
+
+      .login-container h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Bug Tracker Login</h1>
+    <form onsubmit="return handleLogin(event)">
+  <input type="text" id="email" placeholder="Email address" required />
+  <input type="password" id="password" placeholder="Password" required />
+  <input type="submit" value="Login" />
+</form>
+
+<script>
+  function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // Demo credentials (you can change them)
+    const validEmail = "admin@example.com";
+    const validPassword = "1234";
+
+    if (email === validEmail && password === validPassword) {
+      localStorage.setItem("loggedIn", "true");
+      window.location.href = "index.html";
+    } else {
+      alert("Invalid credentials! Try admin@example.com / 1234");
+    }
+
+    return false;
+  }
+</script>
+
+
+    <div class="links">
+      <p><a href="#">Forgot Password?</a></p>
+      <p>Don't have an account? <a href="register.html">Sign up</a></p>
+    </div>
+  </div>
+</body>
+</html>
